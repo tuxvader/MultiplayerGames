@@ -40,7 +40,7 @@ package com.illraceyou.model.box2dworld
 			dbgDraw.m_drawScale = 20.0;
 			dbgDraw.m_fillAlpha = 0.3;
 			dbgDraw.m_lineThickness = 1.0;
-			dbgDraw.m_drawFlags = b2DebugDraw.e_shapeBit |b2DebugDraw.e_centerOfMassBit;
+			dbgDraw.m_drawFlags = b2DebugDraw.e_shapeBit;// |b2DebugDraw.e_centerOfMassBit;
 			_world.SetDebugDraw(dbgDraw);
 			
 			_worlContainer.addEventListener(Event.ENTER_FRAME, Update);

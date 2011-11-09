@@ -11,16 +11,22 @@ package com.illraceyou.model.cars.car
 
 	public class Box2DCar
 	{
-		public const MAX_STEER_ANGLE:Number = Math.PI/3;
-		public const STEER_SPEED:Number = 1.5;
-		public const SIDEWAYS_FRICTION_FORCE:Number = 10;
-		public const HORSEPOWERS:Number = 80;
+		public const MAX_STEER_ANGLE:Number = Math.PI/4;
+		public const STEER_SPEED:Number = 1;
+		public const SIDEWAYS_FRICTION_FORCE:Number = .5;
+		public const HORSEPOWERS:Number = 10;
 		public const CAR_STARTING_POS:b2Vec2 = new b2Vec2(10,10);
 		
-		private const leftRearWheelPosition:b2Vec2 = new b2Vec2(-1.5,1.90);
-		private const rightRearWheelPosition:b2Vec2 = new b2Vec2(1.5,1.9);
-		private const leftFrontWheelPosition:b2Vec2 = new b2Vec2(-1.5,-1.9);
-		private const rightFrontWheelPosition:b2Vec2 = new b2Vec2(1.5,-1.9);
+		
+		private const CAR_BODY_WIDTH:Number = .4;
+		private const CAR_BODY_HEIGHT:Number = .6;
+		private const WHEEL_WIDTH:Number = .05;
+		private const WHELL_HEIGHT:Number = .2;
+		
+		private const leftRearWheelPosition:b2Vec2 = new b2Vec2(-CAR_BODY_WIDTH, CAR_BODY_HEIGHT - .1);
+		private const rightRearWheelPosition:b2Vec2 = new b2Vec2(CAR_BODY_WIDTH,CAR_BODY_HEIGHT - .1);
+		private const leftFrontWheelPosition:b2Vec2 = new b2Vec2(-CAR_BODY_WIDTH,-CAR_BODY_HEIGHT + .1);
+		private const rightFrontWheelPosition:b2Vec2 = new b2Vec2(CAR_BODY_WIDTH,-CAR_BODY_HEIGHT + .1);
 		
 		private var _engineSpeed:Number =0;
 		private var _steeringAngle:Number = 0;
@@ -72,31 +78,31 @@ package com.illraceyou.model.cars.car
 			
 			// define our shapes
 			var boxDef:b2PolygonDef = new b2PolygonDef();
-			boxDef.SetAsBox(1.5,2.5);
+			boxDef.SetAsBox(CAR_BODY_WIDTH, CAR_BODY_HEIGHT);
 			boxDef.density = 1;
 			_body.CreateShape(boxDef);
 			
 			//Left Wheel shape
 			var leftWheelShapeDef:b2PolygonDef = new b2PolygonDef();
-			leftWheelShapeDef.SetAsBox(0.2,0.5);
+			leftWheelShapeDef.SetAsBox(WHEEL_WIDTH,WHELL_HEIGHT);
 			leftWheelShapeDef.density = 1;
 			_leftWheel.CreateShape(leftWheelShapeDef);
 			
 			//Right Wheel shape
 			var rightWheelShapeDef:b2PolygonDef = new b2PolygonDef();
-			rightWheelShapeDef.SetAsBox(0.2,0.5);
+			rightWheelShapeDef.SetAsBox(WHEEL_WIDTH,WHELL_HEIGHT);
 			rightWheelShapeDef.density = 1;
 			_rightWheel.CreateShape(rightWheelShapeDef);
 			
 			//Left Wheel shape
 			var leftRearWheelShapeDef:b2PolygonDef = new b2PolygonDef();
-			leftRearWheelShapeDef.SetAsBox(0.2,0.5);
+			leftRearWheelShapeDef.SetAsBox(WHEEL_WIDTH,WHELL_HEIGHT);
 			leftRearWheelShapeDef.density = 1;
 			_leftRearWheel.CreateShape(leftRearWheelShapeDef);
 			
 			//Right Wheel shape
 			var rightRearWheelShapeDef:b2PolygonDef = new b2PolygonDef();
-			rightRearWheelShapeDef.SetAsBox(0.2,0.5);
+			rightRearWheelShapeDef.SetAsBox(WHEEL_WIDTH,WHELL_HEIGHT);
 			rightRearWheelShapeDef.density = 1;
 			_rightRearWheel.CreateShape(rightRearWheelShapeDef);
 			
